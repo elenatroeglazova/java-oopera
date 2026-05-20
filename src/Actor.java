@@ -1,10 +1,18 @@
 import java.util.Objects;
 
 public class Actor extends Person {
-    private final int height;
+    private int height;
 
     public Actor(String name, String surname, Gender gender, int height) {
         super(name, surname, gender);
+        this.height = height;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
         this.height = height;
     }
 
@@ -18,8 +26,7 @@ public class Actor extends Person {
         if (o == null || getClass() != o.getClass()) return false;
         Actor actor = (Actor) o;
         return height == actor.height &&
-                name.equals(actor.name) &&
-                surname.equals(actor.surname);
+                super.equals(actor);
     }
 
     @Override
